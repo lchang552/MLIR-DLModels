@@ -7,4 +7,16 @@ The model MLIRs are lowered and verified using tools of MLIR, MHLO, and IREE. He
 - [LLVM](https://github.com/llvm/llvm-project): 0fbe3f3f486e01448121f7931a4ca29fac1504ab
 - [MHLO](https://github.com/tensorflow/mlir-hlo): e4d50a80ec92031c21a216e2855803cad1b7269a
 
-## File explainations
+## File Descriptions
+
+### Directories
+- original-iree-model: the same models in IREE's end to end tests
+- mhlo-dialect-only: replace IREE specific operations (Util) with arith dialect
+- lowered-linalg-dialect: the linalg dialect verision that is lowered from MHLO 
+- trueth-llvm-dialect: the llvm dialect verision that is lowered from linalg
+
+### Files
+
+- IREE-swap.py: swap IREE util.global, util.address, and util.load to arith constant
+
+- makefile: record the commands and flags to reproduce the lowering and verification processes
