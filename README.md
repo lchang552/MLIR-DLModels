@@ -19,4 +19,4 @@ The model MLIRs are lowered and verified using tools in MLIR, MHLO, and IREE pro
 
 - **IREE-swap.py**: swap IREE util.global, util.address, and util.load operations to arith constant operation.
 
-- **makefile**: record the commands and flags to reproduce the lowering and verification processes.
+- **makefile**: record the commands and flags to reproduce the lowering and verification processes. 
