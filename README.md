@@ -12,7 +12,7 @@ The model MLIRs are lowered and verified using tools in MLIR, MHLO, and IREE pro
 ### Directories
 - **original-iree-model**: the same models in IREE's end to end tests. Verified using command:
 ```
-/home/lchang1/iree/iree/build-ll/tools/iree-run-mlir --iree-input-type=mhlo --iree-hal-target-backends=dylib-llvm-aot
+iree-run-mlir --iree-input-type=mhlo --iree-hal-target-backends=dylib-llvm-aot
 ```
 - **mhlo-dialect-only**: replace IREE specific operations (Util) with arith dialect.
 - **lowered-linalg-dialect**: the Linalg dialect verision that is lowered from MHLO. Command:
