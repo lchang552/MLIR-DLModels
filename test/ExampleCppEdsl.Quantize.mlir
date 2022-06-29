@@ -11,7 +11,6 @@ func.func @main() {
 func.func private @printMemrefF32(tensor<*xf32>)
 func.func @test(%arg0: tensor<3xf32>)->tensor<3xi8>{
     %cst = arith.constant 2.560000e+02 : f32
-    %0 = linalg.init_tensor [3] : tensor<3xf32>
     %1 = linalg.generic {indexing_maps = [#map0, #map1, #map0], iterator_types = ["parallel"]} ins(%arg0, %cst : tensor<3xf32>, f32) outs(%0 : tensor<3xf32>) {
     ^bb0(%arg1: f32, %arg2: f32, %arg3: f32):
       %4 = arith.mulf %arg1, %arg2 : f32
