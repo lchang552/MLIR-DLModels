@@ -5,6 +5,7 @@
 #include "plaidml/edsl/edsl.h"
 #include "plaidml/exec/exec.h"
 #include "plaidml/op/op.h"
+#include <cstdint>
 #include <cstdio>
 #include <iostream>
 #include <ostream>
@@ -23,6 +24,7 @@ class Environment : public ::testing::Environment {
     plaidml::exec::init();
     plaidml::Settings::set("PLAIDML_DEVICE", FLAGS_plaidml_device);
     plaidml::Settings::set("PLAIDML_TARGET", FLAGS_plaidml_target);
+    std::cout<<"target:"<<FLAGS_plaidml_target<<"\n";
   }
 };
 
@@ -118,13 +120,24 @@ struct Runner {
 
 void TestFixture::checkExact(Program program, const TensorBuffers& inputs, const TensorBuffers& expected) {
   Runner runner(program);
+  //https://stackoverflow.com/questions/7587782/why-is-stdcout-not-printing-the-correct-value-for-my-int8-t-number
+  // https://stackoverflow.com/questions/62355613/stdvariant-cout-in-c
   for (size_t i = 0; i < inputs.size(); i++) {
        std::visit(
           [&](auto&& vec) {
             std::cout<<"input:";
             for(auto ival: vec)
-            {
-              std::cout<<ival<<",";
+            {             
+              int8_t int8_t_name;
+              uint8_t uint8_t_name;
+              if (typeid(ival).name() == typeid(int8_t_name).name()||
+              typeid(ival).name() == typeid(uint8_t_name).name()) {
+                std::cout<<int(ival)<<",";
+              }
+              else {
+                std::cout<<ival<<",";
+              }
+              
             } 
             std::cout<<"\n";      
           },
@@ -136,7 +149,15 @@ void TestFixture::checkExact(Program program, const TensorBuffers& inputs, const
           std::cout<<"output:";
           for(auto ival: vec)
           {
-            std::cout<< ival<<",";
+            int8_t int8_t_name;
+              uint8_t uint8_t_name;
+              if (typeid(ival).name() == typeid(int8_t_name).name()||
+              typeid(ival).name() == typeid(uint8_t_name).name()) {
+                std::cout<<int(ival)<<",";
+              }
+              else {
+                std::cout<<ival<<",";
+              }
           }
           std::cout<<"\n";       
         },
@@ -163,7 +184,8 @@ Program TestFixture::makeProgram(const std::string& name, const std::vector<edsl
   std::cout<< "program_name:"<<name<<"\n";
   for (auto i : inputs)
   {
-    printf("input_dtype: %d \n",i.compute_shape().dtype());
+    // printf("input_dtype: %d \n",i.compute_shape().dtype());
+    std::cout<<"input_dtype:"<< int(i.compute_shape().dtype())<<"\n";
     i.compute_shape().dtype();
 
     std::cout<<"input_shape:";
@@ -176,7 +198,8 @@ Program TestFixture::makeProgram(const std::string& name, const std::vector<edsl
 
   for (auto i : outputs)
   {
-    printf("output_dtype: %d \n",i.compute_shape().dtype());
+    // printf("output_dtype: %d \n",i.compute_shape().dtype());
+    std::cout<<"output_dtype:"<< int(i.compute_shape().dtype())<<"\n";
     i.compute_shape().dtype();
 
     std::cout<<"output_shape:";
