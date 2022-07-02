@@ -4,11 +4,11 @@ module @higher_precision_constants {
 func.func @main() {
     %0= arith.constant dense<[[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [7.0, 8.0, 9.0]]>:tensor<3x3xf32>
     %1 = call @test(%0) : (tensor<3x3xf32>) -> tensor<3x3xf64>
-    %unranked = tensor.cast %1 : tensor<3x3xf64>to tensor<*xf32>
-    call @printMemrefF32(%unranked) : (tensor<*xf32>) -> () 
+    %unranked = tensor.cast %1 : tensor<3x3xf64>to tensor<*xf64>
+    call @printMemrefF64(%unranked) : (tensor<*xf64>) -> () 
     return 
 } 
-func.func private @printMemrefF32(tensor<*xf32>)
+func.func private @printMemrefF64(tensor<*xf64>)
 func.func @test(%arg0: tensor<3x3xf32>)->tensor<3x3xf64>{
     %cst = arith.constant 2.000000e+00 : f64
     %c1_i64 = arith.constant 1 : i64
