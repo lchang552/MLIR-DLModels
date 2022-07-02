@@ -19,6 +19,7 @@ func.func @test(%arg0: tensor<3x3xi64>, %arg1: tensor<3xi64>, %arg2: tensor<3xi6
     %c0_i64 = arith.constant 0 : i64
     %c5_i64 = arith.constant 5 : i64
     %c4_i64 = arith.constant 4 : i64
+    %0 = linalg.init_tensor [3, 3] : tensor<3x3xi64>
     %1 = linalg.generic {indexing_maps = [#map0, #map1, #map0], iterator_types = ["parallel", "parallel"]} ins(%arg0, %c5_i64 : tensor<3x3xi64>, i64) outs(%0 : tensor<3x3xi64>) {
     ^bb0(%arg3: i64, %arg4: i64, %arg5: i64):
       %9 = arith.muli %arg3, %arg4 : i64

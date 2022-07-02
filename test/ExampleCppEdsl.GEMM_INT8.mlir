@@ -9,12 +9,13 @@ func.func @main() {
     %2= arith.constant dense<[[1, 1, 1], [1, 1, 1], [1, 1, 1]]>:tensor<3x3xi8>
     %3 = call @test(%0,%1,%2) : (tensor<3x3xi8>,tensor<3x3xi8>,tensor<3x3xi8>) -> tensor<3x3xi8>
     %unranked = tensor.cast %3 : tensor<3x3xi8>to tensor<*xi8>
-    call @printMemrefI32(%unranked) : (tensor<*xi8>) -> () 
+    call @printMemrefI8(%unranked) : (tensor<*xi8>) -> () 
     return 
 } 
-func.func private @printMemrefI32(tensor<*xi8>)
+func.func private @printMemrefI8(tensor<*xi8>)
 func.func @test(%arg0: tensor<3x3xi8>, %arg1: tensor<3x3xi8>, %arg2: tensor<3x3xi8>)->tensor<3x3xi8>{
     %c0_i8 = arith.constant 0 : i8
+    %0 = linalg.init_tensor [3, 3] : tensor<3x3xi8>
     %1 = linalg.fill ins(%c0_i8 : i8) outs(%0 : tensor<3x3xi8>) -> tensor<3x3xi8>
     %2 = linalg.generic {indexing_maps = [#map0, #map1, #map2], iterator_types = ["parallel", "parallel", "reduction"]} ins(%arg0, %arg1 : tensor<3x3xi8>, tensor<3x3xi8>) outs(%1 : tensor<3x3xi8>) attrs =  {iterator_ranges = [3, 3, 3]} {
     ^bb0(%arg3: i8, %arg4: i8, %arg5: i8):

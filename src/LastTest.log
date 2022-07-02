@@ -1,0 +1,2351 @@
+Start testing: Jun 30 11:04 PDT
+----------------------------------------------------------
+2/12 Testing: plaidml/bridge/keras/trivial_model_test
+2/12 Test: plaidml/bridge/keras/trivial_model_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/.cenv/bin/python" "/nfs/site/home/lchang1/plaidml/plaidml/plaidml/bridge/keras/trivial_model_test.py"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/plaidml/bridge/keras
+"plaidml/bridge/keras/trivial_model_test" start time: Jun 30 11:04 PDT
+Output:
+----------------------------------------------------------
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+
+1/1 [==============================] - 0s 109ms/step
+Using plaidml.bridge.keras backend.
+score: 1.6666666269302368
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+LIBXSMM_TARGET: clx
+Registry and code: 13 MB
+Uptime: 0.700051 s
+<end of output>
+Test time =   2.50 sec
+----------------------------------------------------------
+Test Passed.
+"plaidml/bridge/keras/trivial_model_test" end time: Jun 30 11:04 PDT
+"plaidml/bridge/keras/trivial_model_test" time elapsed: 00:00:02
+----------------------------------------------------------
+
+3/12 Testing: plaidml/edsl/tests/cc_test
+3/12 Test: plaidml/edsl/tests/cc_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/bin/plaidml_edsl_tests_cc_test"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release
+"plaidml/edsl/tests/cc_test" start time: Jun 30 11:04 PDT
+Output:
+----------------------------------------------------------
+[==========] Running 118 tests from 1 test suite.
+[----------] Global test environment set-up.
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+target:llvm_cpu
+[----------] 118 tests from CppEdsl
+[ RUN      ] CppEdsl.BindDims
+[       OK ] CppEdsl.BindDims (0 ms)
+[ RUN      ] CppEdsl.SimpleTensor
+program_name:simple_tensor
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.SimpleTensor (1 ms)
+[ RUN      ] CppEdsl.SimpleAdd
+program_name:simple_add
+input_dtype:14
+input_shape:3,3,
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+input:1,2,3,4,5,6,7,8,9,
+input:1,2,3,4,5,6,7,8,9,
+output:2,4,6,8,10,12,14,16,18,
+[       OK ] CppEdsl.SimpleAdd (34 ms)
+[ RUN      ] CppEdsl.HigherPrecisionConstants
+program_name:higher_precision_constants
+input_dtype:14
+input_shape:3,3,
+output_dtype:15
+output_shape:3,3,
+input:1,2,3,4,5,6,7,8,9,
+output:4,5,6,7,8,9,10,11,12,
+[       OK ] CppEdsl.HigherPrecisionConstants (75 ms)
+[ RUN      ] CppEdsl.Cast
+program_name:cast
+input_dtype:12
+input_shape:3,3,
+output_dtype:10
+output_shape:3,3,
+input:1,2,3,4,5,4102,16777223,2147483656,4294967295,
+output:1,2,3,4,5,4102,16777223,2147483656,4294967295,
+[       OK ] CppEdsl.Cast (46 ms)
+[ RUN      ] CppEdsl.BitAndScalar
+program_name:bit_and
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:4294967296,8589934593,17179869186,34359738371,68719476740,137438953477,274877906950,549755813895,1099511627784,
+output:0,1,2,3,4,5,6,7,8,
+[       OK ] CppEdsl.BitAndScalar (45 ms)
+[ RUN      ] CppEdsl.BitAnd
+program_name:bit_and
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:1,2,3,4,5,6,7,8,9,
+input:10,11,12,13,14,15,16,17,18,
+output:0,2,0,4,4,6,0,0,0,
+[       OK ] CppEdsl.BitAnd (47 ms)
+[ RUN      ] CppEdsl.BitOr
+program_name:bit_or
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:1,2,3,4,5,6,7,8,9,
+input:10,11,12,13,14,15,16,17,18,
+output:11,11,15,13,15,15,23,25,27,
+[       OK ] CppEdsl.BitOr (48 ms)
+[ RUN      ] CppEdsl.BitLeft
+program_name:bit_left
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:1,2,3,4,5,6,7,8,9,
+input:10,11,12,13,14,15,16,17,18,
+output:1024,4096,12288,32768,81920,196608,458752,1048576,2359296,
+[       OK ] CppEdsl.BitLeft (47 ms)
+[ RUN      ] CppEdsl.BitRightTensor
+program_name:bit_right_tensor
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:1024,4096,12288,32768,81920,196608,458752,1048576,2359296,
+input:10,11,12,13,14,15,16,17,18,
+output:1,2,3,4,5,6,7,8,9,
+[       OK ] CppEdsl.BitRightTensor (48 ms)
+[ RUN      ] CppEdsl.BitRightScalar
+program_name:bit_right_scalar
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:1024,4096,12288,32768,81920,196608,458752,1048576,2359296,
+output:2,8,24,64,160,384,896,2048,4608,
+[       OK ] CppEdsl.BitRightScalar (44 ms)
+[ RUN      ] CppEdsl.BitNot
+program_name:bit_not
+input_dtype:6
+input_shape:3,3,
+output_dtype:6
+output_shape:3,3,
+input:0,1,2,16,17,34,240,15,255,
+output:255,254,253,239,238,221,15,240,0,
+[       OK ] CppEdsl.BitNot (46 ms)
+[ RUN      ] CppEdsl.BitXor
+program_name:bit_xor
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:1,2,3,4,5,6,7,8,9,
+input:10,11,12,13,14,15,16,17,18,
+output:11,9,15,9,11,9,23,25,27,
+[       OK ] CppEdsl.BitXor (48 ms)
+[ RUN      ] CppEdsl.BroadcastCmp
+program_name:broadcast_cmp
+input_dtype:12
+input_shape:3,4,
+input_dtype:12
+input_shape:3,1,
+output_dtype:12
+output_shape:3,4,
+input:0,1,2,3,4,5,6,7,8,9,10,11,
+input:0,6,12,
+output:1,1,1,1,0,0,1,1,0,0,0,0,
+[       OK ] CppEdsl.BroadcastCmp (49 ms)
+[ RUN      ] CppEdsl.Add
+program_name:add
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:1,2,3,4,5,4102,16777223,4294967304,1099511627785,
+input:1,4098,3,16777220,5,4294967302,7,1099511627784,9,
+output:2,4100,6,16777224,10,4294971404,16777230,1103806595088,1099511627794,
+[       OK ] CppEdsl.Add (48 ms)
+[ RUN      ] CppEdsl.ConstAdd
+program_name:const_add
+output_dtype:9
+output_shape:4,
+output:5,5,5,5,
+[       OK ] CppEdsl.ConstAdd (77 ms)
+[ RUN      ] CppEdsl.MixedAdd
+program_name:mixed_add
+input_dtype:10
+input_shape:4,
+output_dtype:10
+output_shape:4,
+input:1,2,2,1,
+output:6,7,7,6,
+[       OK ] CppEdsl.MixedAdd (77 ms)
+[ RUN      ] CppEdsl.HighDimDot
+program_name:highdim_dot
+input_dtype:14
+input_shape:5,4,4,8,16,
+input_dtype:14
+input_shape:5,4,4,16,32,
+output_dtype:14
+output_shape:5,4,4,8,32,
+[       OK ] CppEdsl.HighDimDot (1 ms)
+[ RUN      ] CppEdsl.OuterDimDot
+program_name:outerdim_dot
+input_dtype:14
+input_shape:5,16,4,4,8,
+input_dtype:14
+input_shape:5,16,4,4,32,
+output_dtype:14
+output_shape:5,4,4,8,32,
+[       OK ] CppEdsl.OuterDimDot (1 ms)
+[ RUN      ] CppEdsl.Dot
+program_name:dot
+input_dtype:14
+input_shape:8,16,
+input_dtype:14
+input_shape:16,32,
+output_dtype:14
+output_shape:8,32,
+[       OK ] CppEdsl.Dot (74 ms)
+[ RUN      ] CppEdsl.DotF16
+program_name:dot_f16
+input_dtype:13
+input_shape:8,16,
+input_dtype:13
+input_shape:16,32,
+output_dtype:13
+output_shape:8,32,
+[       OK ] CppEdsl.DotF16 (85 ms)
+[ RUN      ] CppEdsl.DotF16_AccF32
+program_name:dot_f16_acc_f32
+input_dtype:13
+input_shape:8,16,
+input_dtype:13
+input_shape:16,32,
+output_dtype:13
+output_shape:8,32,
+[       OK ] CppEdsl.DotF16_AccF32 (113 ms)
+[ RUN      ] CppEdsl.DoubleDot
+program_name:double_dot
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:20,30,
+input_dtype:14
+input_shape:30,40,
+output_dtype:14
+output_shape:10,40,
+[       OK ] CppEdsl.DoubleDot (87 ms)
+[ RUN      ] CppEdsl.BigDot
+program_name:dot
+input_dtype:14
+input_shape:2048,2048,
+input_dtype:14
+input_shape:2048,2048,
+output_dtype:14
+output_shape:2048,2048,
+[       OK ] CppEdsl.BigDot (211 ms)
+[ RUN      ] CppEdsl.Max
+program_name:max
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,
+input:-5,-6,-7,4,5,6,7,8,9,
+output:-5,6,9,
+[       OK ] CppEdsl.Max (103 ms)
+[ RUN      ] CppEdsl.EltwiseAdd
+program_name:eltwise_add
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.EltwiseAdd (37 ms)
+[ RUN      ] CppEdsl.EltwiseMod
+program_name:mod
+input_dtype:9
+input_shape:3,3,
+input_dtype:9
+input_shape:3,3,
+output_dtype:9
+output_shape:3,3,
+input:2,4,8,16,32,64,128,256,512,
+input:1,2,3,4,5,6,7,8,9,
+output:0,0,2,0,2,4,2,0,8,
+[       OK ] CppEdsl.EltwiseMod (39 ms)
+[ RUN      ] CppEdsl.Relu
+program_name:relu
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.Relu (46 ms)
+[ RUN      ] CppEdsl.MnistMlp
+program_name:mnist_mlp
+input_dtype:14
+input_shape:1,784,
+input_dtype:14
+input_shape:784,512,
+input_dtype:14
+input_shape:512,
+input_dtype:14
+input_shape:512,512,
+input_dtype:14
+input_shape:512,
+input_dtype:14
+input_shape:512,10,
+input_dtype:14
+input_shape:10,
+output_dtype:14
+output_shape:1,10,
+[       OK ] CppEdsl.MnistMlp (272 ms)
+[ RUN      ] CppEdsl.Convolution
+program_name:convolution
+input_dtype:14
+input_shape:1,56,56,64,
+input_dtype:14
+input_shape:3,3,64,64,
+output_dtype:14
+output_shape:1,56,56,64,
+[       OK ] CppEdsl.Convolution (260 ms)
+[ RUN      ] CppEdsl.MnistCnn
+program_name:mnist_cnn
+input_dtype:14
+input_shape:1,224,224,1,
+input_dtype:14
+input_shape:3,3,1,32,
+input_dtype:14
+input_shape:32,
+input_dtype:14
+input_shape:3,3,32,64,
+input_dtype:14
+input_shape:64,
+input_dtype:14
+input_shape:802816,128,
+input_dtype:14
+input_shape:128,
+input_dtype:14
+input_shape:128,100,
+input_dtype:14
+input_shape:100,
+output_dtype:14
+output_shape:1,100,
+[       OK ] CppEdsl.MnistCnn (1135 ms)
+[ RUN      ] CppEdsl.LarsMomentum4d
+program_name:lars_momentum4d
+input_dtype:14
+input_shape:4,7,3,9,
+input_dtype:14
+input_shape:4,7,3,9,
+input_dtype:14
+input_shape:4,7,3,9,
+input_dtype:14
+input_shape:
+output_dtype:14
+output_shape:4,7,3,9,
+output_dtype:14
+output_shape:4,7,3,9,
+[       OK ] CppEdsl.LarsMomentum4d (229 ms)
+[ RUN      ] CppEdsl.RepeatElements
+program_name:repeat_elts
+input_dtype:14
+input_shape:10,10,10,
+output_dtype:14
+output_shape:10,30,10,
+[       OK ] CppEdsl.RepeatElements (210 ms)
+[ RUN      ] CppEdsl.UniqueNames
+program_name:unique_names
+input_dtype:14
+input_shape:1,
+input_dtype:14
+input_shape:1,
+input_dtype:14
+input_shape:1,
+input_dtype:14
+input_shape:1,
+output_dtype:14
+output_shape:1,
+[       OK ] CppEdsl.UniqueNames (32 ms)
+[ RUN      ] CppEdsl.GlobalMin
+program_name:global_min
+input_dtype:14
+input_shape:10,10,10,
+output_dtype:14
+output_shape:
+[       OK ] CppEdsl.GlobalMin (60 ms)
+[ RUN      ] CppEdsl.CumSum
+program_name:cumsum
+input_dtype:14
+input_shape:10,
+output_dtype:14
+output_shape:10,
+[       OK ] CppEdsl.CumSum (95 ms)
+[ RUN      ] CppEdsl.ComplexConv2d
+program_name:complex_conv_2d
+input_dtype:14
+input_shape:1,224,224,3,3,
+input_dtype:14
+input_shape:3,3,3,3,32,
+output_dtype:14
+output_shape:1,112,112,3,32,
+[       OK ] CppEdsl.ComplexConv2d (381 ms)
+[ RUN      ] CppEdsl.Reciprocal
+program_name:reciprocal
+input_dtype:14
+input_shape:6,
+output_dtype:14
+output_shape:6,
+input:1,2,4,5,8,10,
+output:1,0.5,0.25,0.2,0.125,0.1,
+[       OK ] CppEdsl.Reciprocal (45 ms)
+[ RUN      ] CppEdsl.ReshapeFold
+program_name:reshape_fold
+input_dtype:9
+input_shape:3,3,
+output_dtype:9
+output_shape:3,3,
+input:1,2,3,4,5,6,7,8,9,
+output:1,2,3,4,5,6,7,8,9,
+[       OK ] CppEdsl.ReshapeFold (47 ms)
+[ RUN      ] CppEdsl.ReshapeScalar
+program_name:reshape_scalar
+input_dtype:9
+input_shape:
+output_dtype:9
+output_shape:
+input:2,
+output:2,
+[       OK ] CppEdsl.ReshapeScalar (21 ms)
+[ RUN      ] CppEdsl.ReshapeIntoScalar
+program_name:reshape_into_scalar
+input_dtype:9
+input_shape:1,1,1,
+output_dtype:9
+output_shape:
+input:2,
+output:2,
+[       OK ] CppEdsl.ReshapeIntoScalar (22 ms)
+[ RUN      ] CppEdsl.ReshapeFromScalar
+program_name:reshape_from_scalar
+input_dtype:9
+input_shape:
+output_dtype:9
+output_shape:1,1,1,
+input:2,
+output:2,
+[       OK ] CppEdsl.ReshapeFromScalar (22 ms)
+[ RUN      ] CppEdsl.DefractLong
+program_name:defract_long
+input_dtype:14
+input_shape:1,3,3,1,
+input_dtype:14
+input_shape:1,3,3,1,
+output_dtype:14
+output_shape:1,5,5,1,
+[       OK ] CppEdsl.DefractLong (1037 ms)
+[ RUN      ] CppEdsl.DupOut
+program_name:dup_out
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:20,30,
+input_dtype:14
+input_shape:30,40,
+output_dtype:14
+output_shape:10,40,
+output_dtype:14
+output_shape:10,40,
+output_dtype:14
+output_shape:10,40,
+[       OK ] CppEdsl.DupOut (139 ms)
+[ RUN      ] CppEdsl.Select
+program_name:select
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.Select (45 ms)
+[ RUN      ] CppEdsl.Shape
+program_name:shape
+input_dtype:14
+input_shape:2,3,
+output_dtype:9
+output_shape:2,
+input:1,2,3,1,2,3,
+output:2,3,
+[       OK ] CppEdsl.Shape (51 ms)
+[ RUN      ] CppEdsl.Prng
+program_name:prng
+output_dtype:14
+output_shape:2,3,
+output_dtype:10
+output_shape:1,3,
+[       OK ] CppEdsl.Prng (39 ms)
+[ RUN      ] CppEdsl.Cos
+program_name:cos
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Cos (46 ms)
+[ RUN      ] CppEdsl.Sin
+program_name:sin
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Sin (43 ms)
+[ RUN      ] CppEdsl.ConvI8
+program_name:convolution
+input_dtype:5
+input_shape:1,224,224,3,
+input_dtype:5
+input_shape:3,3,3,32,
+output_dtype:5
+output_shape:1,224,224,32,
+[       OK ] CppEdsl.ConvI8 (247 ms)
+[ RUN      ] CppEdsl.LogicalAnd_uint64
+program_name:logical_and
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:4
+output_shape:3,3,
+input:1,2,3,4,0,6,7,0,9,
+input:10,11,12,13,14,15,16,17,18,
+output:1,1,1,1,0,1,1,0,1,
+[       OK ] CppEdsl.LogicalAnd_uint64 (42 ms)
+[ RUN      ] CppEdsl.LogicalAnd_mixed
+program_name:logical_and
+input_dtype:12
+input_shape:3,3,
+input_dtype:14
+input_shape:3,3,
+output_dtype:4
+output_shape:3,3,
+input:1,2,3,4,0,6,7,0,9,
+input:10,11,12,13,14,15,16,17,18,
+output:1,1,1,1,0,1,1,0,1,
+[       OK ] CppEdsl.LogicalAnd_mixed (42 ms)
+[ RUN      ] CppEdsl.LogicalOr_uint64
+program_name:logical_or
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:4
+output_shape:3,3,
+input:1,2,3,4,0,6,7,0,9,
+input:10,11,12,0,0,0,16,17,18,
+output:1,1,1,1,0,1,1,1,1,
+[       OK ] CppEdsl.LogicalOr_uint64 (41 ms)
+[ RUN      ] CppEdsl.LogicalOr_float
+program_name:logical_or
+input_dtype:14
+input_shape:3,3,
+input_dtype:14
+input_shape:3,3,
+output_dtype:4
+output_shape:3,3,
+input:1,2,3,4,0,6,7,0,9,
+input:10,11,12,0,0,0,16,17,18,
+output:1,1,1,1,0,1,1,1,1,
+[       OK ] CppEdsl.LogicalOr_float (42 ms)
+[ RUN      ] CppEdsl.LogicalOr_int32
+program_name:logical_or
+input_dtype:9
+input_shape:3,3,
+input_dtype:9
+input_shape:3,3,
+output_dtype:4
+output_shape:3,3,
+input:1,2,3,4,0,6,7,0,9,
+input:10,11,12,0,0,0,16,17,18,
+output:1,1,1,1,0,1,1,1,1,
+[       OK ] CppEdsl.LogicalOr_int32 (41 ms)
+[ RUN      ] CppEdsl.LogicalNot_int32
+program_name:logical_not
+input_dtype:9
+input_shape:3,3,
+output_dtype:4
+output_shape:3,3,
+input:1,2,3,4,0,6,7,0,9,
+output:0,0,0,0,1,0,0,1,0,
+[       OK ] CppEdsl.LogicalNot_int32 (40 ms)
+[ RUN      ] CppEdsl.LogicalNot_float
+program_name:logical_not
+input_dtype:14
+input_shape:3,3,
+output_dtype:4
+output_shape:3,3,
+input:1,2,3,4,0,6.5,7.7,0,0.9,
+output:0,0,0,0,1,0,0,1,0,
+[       OK ] CppEdsl.LogicalNot_float (39 ms)
+[ RUN      ] CppEdsl.Asin
+program_name:asin
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Asin (32 ms)
+[ RUN      ] CppEdsl.AsinH
+program_name:asinh
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.AsinH (33 ms)
+[ RUN      ] CppEdsl.Acos
+program_name:acos
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Acos (32 ms)
+[ RUN      ] CppEdsl.AcosH
+program_name:acosh
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.AcosH (32 ms)
+[ RUN      ] CppEdsl.Atan
+program_name:atan
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Atan (34 ms)
+[ RUN      ] CppEdsl.AtanH
+program_name:atanh
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.AtanH (32 ms)
+[ RUN      ] CppEdsl.CosH
+program_name:cosh
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.CosH (32 ms)
+[ RUN      ] CppEdsl.Erf
+program_name:erf
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Erf (34 ms)
+[ RUN      ] CppEdsl.Floor
+program_name:floor
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+input:1.1,9.21,3,-0.4,-7,0.6,1,0,-6.6,
+output:1,9,3,-1,-7,0,1,0,-7,
+[       OK ] CppEdsl.Floor (42 ms)
+[ RUN      ] CppEdsl.Gather
+program_name:gather
+input_dtype:14
+input_shape:3,2,
+input_dtype:9
+input_shape:4,
+output_dtype:14
+output_shape:3,4,
+input:-5,-6,-7,4,5,6,
+input:0,1,1,0,
+output:-5,-6,-6,-5,-7,4,4,-7,5,6,6,5,
+[       OK ] CppEdsl.Gather (37 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherNearest
+program_name:interpolated_gather_nearest
+input_dtype:14
+input_shape:1,6,
+input_dtype:14
+input_shape:9,
+output_dtype:14
+output_shape:1,9,
+input:0.3,1,8,5,5,2,
+input:-0.25,0.5,0.75,1.5,2,5,5.1,5.5,5.6,
+output:0.3,1,1,8,8,2,2,2,2,
+[       OK ] CppEdsl.InterpolatedGatherNearest (40 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherLinear
+program_name:interpolated_gather_linear
+input_dtype:14
+input_shape:1,6,
+input_dtype:14
+input_shape:12,
+output_dtype:14
+output_shape:1,12,
+input:0,1,8,5,5,2,
+input:-0.25,0.25,0.75,1.25,1.75,2.25,2.75,3.25,3.75,4.25,4.75,5.25,
+output:0,0.25,0.75,2.75,6.25,7.25,5.75,5,5,4.25,2.75,2,
+[       OK ] CppEdsl.InterpolatedGatherLinear (77 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherLinearOutOfBoundsReturnZero
+program_name:interpolated_gather_linear
+input_dtype:14
+input_shape:1,6,
+input_dtype:14
+input_shape:12,
+output_dtype:14
+output_shape:1,12,
+input:0,1,8,5,5,2,
+input:-0.25,0.25,0.75,1.25,1.75,2.25,2.75,3.25,3.75,4.25,4.75,5.25,
+output:0,0.25,0.75,2.75,6.25,7.25,5.75,5,5,4.25,2.75,0,
+[       OK ] CppEdsl.InterpolatedGatherLinearOutOfBoundsReturnZero (38 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherCubic
+program_name:interpolated_gather_cubic
+input_dtype:14
+input_shape:1,6,
+input_dtype:14
+input_shape:12,
+output_dtype:14
+output_shape:1,12,
+[       OK ] CppEdsl.InterpolatedGatherCubic (271 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherCubicOutOfBoundsReturnZero
+program_name:interpolated_gather_cubic
+input_dtype:14
+input_shape:1,6,
+input_dtype:14
+input_shape:12,
+output_dtype:14
+output_shape:1,12,
+[       OK ] CppEdsl.InterpolatedGatherCubicOutOfBoundsReturnZero (32 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherCubicDouble
+program_name:interpolated_gather_cubic_double
+input_dtype:15
+input_shape:1,6,
+input_dtype:15
+input_shape:12,
+output_dtype:15
+output_shape:1,12,
+[       OK ] CppEdsl.InterpolatedGatherCubicDouble (267 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherCubicHalf
+program_name:interpolated_gather_cubic_half
+input_dtype:13
+input_shape:1,6,
+input_dtype:13
+input_shape:12,
+output_dtype:13
+output_shape:1,12,
+[       OK ] CppEdsl.InterpolatedGatherCubicHalf (204 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherMultiDIndices
+program_name:interpolated_gather_multiD_indices
+input_dtype:14
+input_shape:3,5,2,
+input_dtype:14
+input_shape:2,2,
+output_dtype:14
+output_shape:3,2,2,2,
+input:1,2,3,4,5,6,7,8,9,10,1.1,2.1,3.1,4.1,5.1,6.1,7.1,8.1,9.1,10.1,1.2,2.2,3.2,4.2,5.2,6.2,7.2,8.2,9.2,10.2,
+input:0.8,1.3,2,2.7,
+output:3,4,3,4,5,6,7,8,3.1,4.1,3.1,4.1,5.1,6.1,7.1,8.1,3.2,4.2,3.2,4.2,5.2,6.2,7.2,8.2,
+[       OK ] CppEdsl.InterpolatedGatherMultiDIndices (30 ms)
+[ RUN      ] CppEdsl.GatherND
+program_name:gatherND
+input_dtype:14
+input_shape:2,2,2,
+input_dtype:9
+input_shape:2,2,
+output_dtype:14
+output_shape:2,2,
+input:-5,-6,1.3,4.5,-7,4,5,6,
+input:0,1,1,0,
+output:1.3,4.5,-7,4,
+[       OK ] CppEdsl.GatherND (51 ms)
+[ RUN      ] CppEdsl.GatherNDWithBatchDims
+program_name:gatherND
+input_dtype:14
+input_shape:2,3,4,
+input_dtype:9
+input_shape:2,3,1,1,
+output_dtype:14
+output_shape:2,3,1,
+input:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,
+input:1,0,2,0,2,2,
+output:2,5,11,13,19,23,
+[       OK ] CppEdsl.GatherNDWithBatchDims (41 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherND1
+program_name:gatherND
+input_dtype:14
+input_shape:2,2,
+input_dtype:14
+input_shape:3,1,
+output_dtype:14
+output_shape:3,2,
+[       OK ] CppEdsl.InterpolatedGatherND1 (370 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherND2
+program_name:gatherND
+input_dtype:14
+input_shape:4,3,2,
+input_dtype:14
+input_shape:4,1,2,
+output_dtype:14
+output_shape:4,1,
+[       OK ] CppEdsl.InterpolatedGatherND2 (781 ms)
+[ RUN      ] CppEdsl.InterpolatedGatherND3
+program_name:gatherND
+input_dtype:14
+input_shape:2,2,
+input_dtype:14
+input_shape:3,2,
+output_dtype:14
+output_shape:3,
+[       OK ] CppEdsl.InterpolatedGatherND3 (745 ms)
+[ RUN      ] CppEdsl.Pow
+program_name:pow
+input_dtype:14
+input_shape:3,3,
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Pow (47 ms)
+[ RUN      ] CppEdsl.Round
+program_name:round
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+input:1.1,9.21,3,-0.4,-7,0.6,1,0,-6.6,
+output:1,9,3,0,-7,1,1,0,-7,
+[       OK ] CppEdsl.Round (36 ms)
+[ RUN      ] CppEdsl.SinH
+program_name:sinh
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.SinH (32 ms)
+[ RUN      ] CppEdsl.Tan
+program_name:tan
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Tan (32 ms)
+[ RUN      ] CppEdsl.Scatter1D
+program_name:scatter
+input_dtype:14
+input_shape:8,
+input_dtype:9
+input_shape:4,
+input_dtype:14
+input_shape:4,
+output_dtype:14
+output_shape:8,
+input:0,0,0,0,0,0,0,0,
+input:4,3,1,7,
+input:9,10,11,12,
+output:0,11,0,10,9,0,0,12,
+[       OK ] CppEdsl.Scatter1D (57 ms)
+[ RUN      ] CppEdsl.Scatter3D
+program_name:scatter
+input_dtype:14
+input_shape:4,4,4,
+input_dtype:9
+input_shape:2,
+input_dtype:14
+input_shape:2,4,4,
+output_dtype:14
+output_shape:4,4,4,
+input:0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+input:0,2,
+input:5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,
+output:5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[       OK ] CppEdsl.Scatter3D (65 ms)
+[ RUN      ] CppEdsl.ScatterDup1D
+program_name:scatter
+input_dtype:14
+input_shape:8,
+input_dtype:9
+input_shape:4,
+input_dtype:14
+input_shape:4,
+output_dtype:14
+output_shape:8,
+input:0,0,0,0,0,0,0,0,
+input:4,3,3,7,
+input:9,10,11,12,
+output:0,0,0,21,9,0,0,12,
+[       OK ] CppEdsl.ScatterDup1D (57 ms)
+[ RUN      ] CppEdsl.ScatterDup3D
+program_name:scatter
+input_dtype:14
+input_shape:4,4,4,
+input_dtype:9
+input_shape:2,
+input_dtype:14
+input_shape:2,4,4,
+output_dtype:14
+output_shape:4,4,4,
+input:0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+input:2,2,
+input:5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,
+output:0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,10,10,10,12,12,12,12,14,14,14,14,16,16,16,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[       OK ] CppEdsl.ScatterDup3D (66 ms)
+[ RUN      ] CppEdsl.Scatter1DUpdateSlice
+program_name:scatter
+input_dtype:14
+input_shape:8,
+input_dtype:9
+input_shape:4,
+input_dtype:14
+input_shape:4,
+output_dtype:14
+output_shape:8,
+input:1,1,1,1,1,1,1,1,
+input:4,3,1,7,
+input:9,10,11,12,
+output:1,11,1,10,9,1,1,12,
+[       OK ] CppEdsl.Scatter1DUpdateSlice (52 ms)
+[ RUN      ] CppEdsl.Scatter3DUpdateSlice
+program_name:scatter
+input_dtype:14
+input_shape:4,4,4,
+input_dtype:9
+input_shape:2,
+input_dtype:14
+input_shape:2,4,4,
+output_dtype:14
+output_shape:4,4,4,
+input:1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+input:0,2,
+input:5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,
+output:5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+[       OK ] CppEdsl.Scatter3DUpdateSlice (55 ms)
+[ RUN      ] CppEdsl.ScatterNDUpdateSlice
+program_name:scatter
+input_dtype:14
+input_shape:8,
+input_dtype:9
+input_shape:4,1,
+input_dtype:14
+input_shape:4,
+output_dtype:14
+output_shape:8,
+input:1,1,1,1,1,1,1,1,
+input:4,3,1,7,
+input:9,10,11,12,
+output:1,11,1,10,9,1,1,12,
+[       OK ] CppEdsl.ScatterNDUpdateSlice (52 ms)
+[ RUN      ] CppEdsl.ScatterNDUpdateSlice2
+program_name:scatter
+input_dtype:14
+input_shape:4,4,4,
+input_dtype:9
+input_shape:2,1,
+input_dtype:14
+input_shape:2,4,4,
+output_dtype:14
+output_shape:4,4,4,
+input:1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+input:0,2,
+input:5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,
+output:5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,6,6,6,6,7,7,7,7,8,8,8,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+[       OK ] CppEdsl.ScatterNDUpdateSlice2 (55 ms)
+[ RUN      ] CppEdsl.ScatterNDUpdateSlice3
+program_name:scatter
+input_dtype:14
+input_shape:1,4,4,4,
+input_dtype:9
+input_shape:2,3,
+input_dtype:14
+input_shape:2,4,
+output_dtype:14
+output_shape:1,4,4,4,
+input:1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+input:0,0,0,0,1,2,
+input:5,5,5,5,6,6,6,6,
+output:5,5,5,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,6,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+[       OK ] CppEdsl.ScatterNDUpdateSlice3 (52 ms)
+[ RUN      ] CppEdsl.ScatterElt
+program_name:scatter
+input_dtype:14
+input_shape:4,4,
+input_dtype:9
+input_shape:2,2,
+input_dtype:14
+input_shape:2,2,
+output_dtype:14
+output_shape:4,4,
+input:1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+input:2,0,3,1,
+input:9,9,9,9,
+output:9,1,9,1,1,9,1,9,1,1,1,1,1,1,1,1,
+[       OK ] CppEdsl.ScatterElt (34 ms)
+[ RUN      ] CppEdsl.Trace
+program_name:trace
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+[       OK ] CppEdsl.Trace (0 ms)
+[ RUN      ] CppEdsl.Lens
+program_name:conv2d_nhwc
+input_dtype:14
+input_shape:1,224,224,3,
+input_dtype:14
+input_shape:3,3,3,32,
+output_dtype:14
+output_shape:1,224,224,32,
+program_name:conv2d_nchw
+input_dtype:14
+input_shape:1,3,224,224,
+input_dtype:14
+input_shape:3,32,7,7,
+output_dtype:14
+output_shape:1,32,224,224,
+program_name:transpose_mn
+input_dtype:14
+input_shape:2,3,
+output_dtype:14
+output_shape:3,2,
+input:1,2,3,4,5,6,
+output:1,4,2,5,3,6,
+program_name:transpose_nm
+input_dtype:14
+input_shape:2,3,
+output_dtype:14
+output_shape:3,2,
+input:1,2,3,4,5,6,
+output:1,4,2,5,3,6,
+[       OK ] CppEdsl.Lens (97 ms)
+[ RUN      ] CppEdsl.Layer
+program_name:relu
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.Layer (44 ms)
+[ RUN      ] CppEdsl.LayerOperandOrder
+program_name:LayerOperandOrder
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.LayerOperandOrder (37 ms)
+[ RUN      ] CppEdsl.LayerMissingOperand
+[       OK ] CppEdsl.LayerMissingOperand (0 ms)
+[ RUN      ] CppEdsl.LayerMultipleReturnValues
+program_name:LayerMultipleReturnValues
+input_dtype:14
+input_shape:10,5,
+output_dtype:14
+output_shape:10,5,5,
+output_dtype:9
+output_shape:10,5,
+[       OK ] CppEdsl.LayerMultipleReturnValues (88 ms)
+[ RUN      ] CppEdsl.LayerEmbeddedConst
+program_name:LayerEmbeddedConst
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.LayerEmbeddedConst (45 ms)
+[ RUN      ] CppEdsl.LayerUnusedOperand
+program_name:LayerUnusedOperand
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.LayerUnusedOperand (43 ms)
+[ RUN      ] CppEdsl.BadDataType
+[       OK ] CppEdsl.BadDataType (0 ms)
+[ RUN      ] CppEdsl.IndexOp
+program_name:IndexOp
+output_dtype:9
+output_shape:10,
+[       OK ] CppEdsl.IndexOp (0 ms)
+[ RUN      ] CppEdsl.LayerMulti
+program_name:LayerMulti
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.LayerMulti (61 ms)
+[ RUN      ] CppEdsl.LayerException
+program_name:LayerException
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] CppEdsl.LayerException (44 ms)
+[ RUN      ] CppEdsl.BindBadDims
+[       OK ] CppEdsl.BindBadDims (0 ms)
+[ RUN      ] CppEdsl.EltwiseMismatch
+[       OK ] CppEdsl.EltwiseMismatch (0 ms)
+[ RUN      ] CppEdsl.OpOperators
+[       OK ] CppEdsl.OpOperators (0 ms)
+[ RUN      ] CppEdsl.ArgSort1d
+program_name:argsort
+input_dtype:14
+input_shape:20,
+output_dtype:9
+output_shape:20,
+input:81.69,95.74,27.74,43.69,55.79,56.79,57.52,5.9,39.48,7.11,14.81,66.23,20.25,66.05,64.5,71.07,67.6,54.42,87.59,80.02,
+output:7,9,10,12,2,8,3,17,4,5,6,14,13,11,16,15,19,0,18,1,
+[       OK ] CppEdsl.ArgSort1d (101 ms)
+[ RUN      ] CppEdsl.ArgSort1dInt
+program_name:argsort
+input_dtype:9
+input_shape:20,
+output_dtype:9
+output_shape:20,
+input:81,95,27,43,55,56,57,5,39,7,14,67,20,66,64,71,68,54,87,80,
+output:7,9,10,12,2,8,3,17,4,5,6,14,13,11,16,15,19,0,18,1,
+[       OK ] CppEdsl.ArgSort1dInt (97 ms)
+[ RUN      ] CppEdsl.ArgSort1dDup
+program_name:argsort
+input_dtype:14
+input_shape:20,
+output_dtype:9
+output_shape:20,
+input:81.69,81.69,27.74,43.69,55.79,56.79,57.52,7.11,39.48,5.9,14.81,66.23,20.25,66.05,64.5,71.07,67.6,54.42,87.59,80.02,
+output:9,7,10,12,2,8,3,17,4,5,6,14,13,11,16,15,19,0,1,18,
+[       OK ] CppEdsl.ArgSort1dDup (60 ms)
+[ RUN      ] CppEdsl.ArgSort2dAxis0
+program_name:argsort
+input_dtype:14
+input_shape:5,4,
+output_dtype:9
+output_shape:5,4,
+input:81.69,95.74,27.74,43.69,55.79,56.79,57.52,5.9,39.48,7.11,14.81,66.23,20.25,66.05,64.5,71.07,67.6,54.42,87.59,80.02,
+output:3,2,2,1,2,4,0,0,1,1,1,2,4,3,3,3,0,0,4,4,
+[       OK ] CppEdsl.ArgSort2dAxis0 (55 ms)
+[ RUN      ] CppEdsl.ArgSort2dAxis1
+program_name:argsort
+input_dtype:14
+input_shape:5,4,
+output_dtype:9
+output_shape:5,4,
+input:81.69,95.74,27.74,43.69,55.79,56.79,57.52,5.9,39.48,7.11,14.81,66.23,20.25,66.05,64.5,71.07,67.6,54.42,87.59,80.02,
+output:2,3,0,1,3,0,1,2,1,2,0,3,0,2,1,3,1,0,3,2,
+[       OK ] CppEdsl.ArgSort2dAxis1 (37 ms)
+[ RUN      ] CppEdsl.ArgSort3dAxis0Asc
+program_name:argsort
+input_dtype:14
+input_shape:3,4,5,
+output_dtype:9
+output_shape:3,4,5,
+input:0.508,0.001,0.833,0.186,0.96,0.405,0.621,0.183,0.769,0.331,0.726,0.678,0.027,0.789,0.544,0.151,0.453,0.512,0.513,0.451,0.875,0.089,0.909,0.353,0.829,0.238,0.511,0.619,0.214,0.818,0.085,0.713,0.649,0.373,0.654,0.615,0.865,0.268,0.713,0.171,0.218,0.272,0.702,0.621,0.224,0.236,0.746,0.508,0.189,0.503,0.177,0.096,0.466,0.228,0.759,0.771,0.567,0.594,0.211,0.183,
+output:2,0,2,0,2,2,1,0,2,0,1,2,0,2,0,0,0,1,2,1,0,1,0,1,1,1,0,2,1,2,2,0,2,1,1,1,2,0,0,2,1,2,1,2,0,0,2,1,0,1,0,1,1,0,2,2,1,2,1,0,
+[       OK ] CppEdsl.ArgSort3dAxis0Asc (123 ms)
+[ RUN      ] CppEdsl.ArgSort3dAxis2Desc
+program_name:argsort
+input_dtype:14
+input_shape:3,4,5,
+output_dtype:9
+output_shape:3,4,5,
+input:0.508,0.001,0.833,0.186,0.96,0.405,0.621,0.183,0.769,0.331,0.726,0.678,0.027,0.789,0.544,0.151,0.453,0.512,0.513,0.451,0.875,0.089,0.909,0.353,0.829,0.238,0.511,0.619,0.214,0.818,0.085,0.713,0.649,0.373,0.654,0.615,0.865,0.268,0.713,0.171,0.218,0.272,0.702,0.621,0.224,0.236,0.746,0.508,0.189,0.503,0.177,0.096,0.466,0.228,0.759,0.771,0.567,0.594,0.211,0.183,
+output:4,2,0,3,1,3,1,0,4,2,3,0,1,4,2,3,2,1,4,0,2,0,4,3,1,4,2,1,0,3,1,4,2,3,0,1,3,0,2,4,2,3,1,4,0,1,2,4,0,3,4,2,3,0,1,0,2,1,3,4,
+[       OK ] CppEdsl.ArgSort3dAxis2Desc (49 ms)
+[ RUN      ] CppEdsl.ArgSort3dAxisNeg2Asc
+program_name:argsort
+input_dtype:14
+input_shape:2,2,2,
+output_dtype:9
+output_shape:2,2,2,
+input:1,2,3,4,5,6,7,8,
+output:0,0,1,1,0,0,1,1,
+[       OK ] CppEdsl.ArgSort3dAxisNeg2Asc (30 ms)
+[ RUN      ] CppEdsl.FunkySum
+program_name:funky_sum
+input_dtype:14
+input_shape:3,
+input_dtype:14
+input_shape:3,
+output_dtype:14
+output_shape:5,
+input:1,2,3,
+input:1,2,3,
+output:2,5,4,9,6,
+[       OK ] CppEdsl.FunkySum (235 ms)
+[----------] 118 tests from CppEdsl (11571 ms total)
+
+[----------] Global test environment tear-down
+[==========] 118 tests from 1 test suite ran. (11572 ms total)
+[  PASSED  ] 118 tests.
+
+  YOU HAVE 1 DISABLED TEST
+
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+CLX/SP      TRY    JIT    STA    COL
+   0..13      3      3      0      0
+  14..23      0      0      0      0
+  24..64      3      3      0      0
+Registry and code: 13 MB + 408 KB (gemm=6 gemv=5 meltw=40)
+Uptime: 11.574030 s
+<end of output>
+Test time =  11.61 sec
+----------------------------------------------------------
+Test Passed.
+"plaidml/edsl/tests/cc_test" end time: Jun 30 11:04 PDT
+"plaidml/edsl/tests/cc_test" time elapsed: 00:00:11
+----------------------------------------------------------
+
+4/12 Testing: plaidml/edsl/tests/py_test
+4/12 Test: plaidml/edsl/tests/py_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/.cenv/bin/python" "/nfs/site/home/lchang1/plaidml/plaidml/plaidml/edsl/tests/edsl_test.py"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/plaidml/edsl/tests
+"plaidml/edsl/tests/py_test" start time: Jun 30 11:04 PDT
+Output:
+----------------------------------------------------------
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+........s............................
+----------------------------------------------------------------------
+Ran 37 tests in 6.294s
+
+OK (skipped=1)
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+CLX/SP      TRY    JIT    STA    COL
+   0..13      0      0      0      0
+  14..23      0      0      0      0
+  24..64      1      1      0      0
+Registry and code: 13 MB + 240 KB (gemm=1 gemv=6 meltw=23)
+Uptime: 6.389947 s
+<end of output>
+Test time =   7.08 sec
+----------------------------------------------------------
+Test Passed.
+"plaidml/edsl/tests/py_test" end time: Jun 30 11:04 PDT
+"plaidml/edsl/tests/py_test" time elapsed: 00:00:07
+----------------------------------------------------------
+
+5/12 Testing: plaidml/edsl/tests/lit
+5/12 Test: plaidml/edsl/tests/lit
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/_deps/llvm-project-build/bin/llvm-lit" "/nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/plaidml/edsl/tests" "-v"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release
+"plaidml/edsl/tests/lit" start time: Jun 30 11:04 PDT
+Output:
+----------------------------------------------------------
+-- Testing: 1 tests, 1 workers --
+PASS: PML :: plaidml/edsl/tests/edsl_test.cc (1 of 1)
+
+Testing Time: 12.04s
+  Passed: 1
+<end of output>
+Test time =  12.17 sec
+----------------------------------------------------------
+Test Passed.
+"plaidml/edsl/tests/lit" end time: Jun 30 11:04 PDT
+"plaidml/edsl/tests/lit" time elapsed: 00:00:12
+----------------------------------------------------------
+
+6/12 Testing: plaidml/edsl/examples/cc_test
+6/12 Test: plaidml/edsl/examples/cc_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/bin/plaidml_edsl_examples_cc_test"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release
+"plaidml/edsl/examples/cc_test" start time: Jun 30 11:04 PDT
+Output:
+----------------------------------------------------------
+[==========] Running 17 tests from 1 test suite.
+[----------] Global test environment set-up.
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+target:llvm_cpu
+[----------] 17 tests from ExampleCppEdsl
+[ RUN      ] ExampleCppEdsl.ComplexConv2d
+program_name:complex_conv_2d
+input_dtype:14
+input_shape:1,224,224,3,3,
+input_dtype:14
+input_shape:3,3,3,3,32,
+output_dtype:14
+output_shape:1,112,112,3,32,
+[       OK ] ExampleCppEdsl.ComplexConv2d (963 ms)
+[ RUN      ] ExampleCppEdsl.Conv1D
+program_name:conv_1d
+input_dtype:12
+input_shape:1,244,3,
+input_dtype:12
+input_shape:3,3,1,
+output_dtype:12
+output_shape:1,242,1,
+[       OK ] ExampleCppEdsl.Conv1D (58 ms)
+[ RUN      ] ExampleCppEdsl.Conv2DDilated
+program_name:conv_2d_dilated
+input_dtype:12
+input_shape:1,244,244,1,
+input_dtype:12
+input_shape:3,3,1,32,
+output_dtype:12
+output_shape:1,240,238,32,
+[       OK ] ExampleCppEdsl.Conv2DDilated (182 ms)
+[ RUN      ] ExampleCppEdsl.GEMM_INT64
+program_name:gemm
+input_dtype:11
+input_shape:3,3,
+input_dtype:11
+input_shape:3,3,
+input_dtype:11
+input_shape:3,3,
+output_dtype:11
+output_shape:3,3,
+input:1,1,1,1,1,2,3,3,3,
+input:10,11,12,13,14,15,16,17,18,
+input:1,1,1,1,1,1,1,1,1,
+output:40,43,46,56,60,64,118,127,136,
+[       OK ] ExampleCppEdsl.GEMM_INT64 (65 ms)
+[ RUN      ] ExampleCppEdsl.GEMM_UINT64
+program_name:gemm
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,3,
+output_dtype:12
+output_shape:3,3,
+input:1,1,1,1,1,2,3,3,3,
+input:10,11,12,13,14,15,16,17,18,
+input:1,1,1,1,1,1,1,1,1,
+output:40,43,46,56,60,64,118,127,136,
+[       OK ] ExampleCppEdsl.GEMM_UINT64 (65 ms)
+[ RUN      ] ExampleCppEdsl.GEMM_INT32
+program_name:gemm
+input_dtype:9
+input_shape:3,3,
+input_dtype:9
+input_shape:3,3,
+input_dtype:9
+input_shape:3,3,
+output_dtype:9
+output_shape:3,3,
+input:1,1,1,1,1,2,3,3,3,
+input:10,11,12,13,14,15,16,17,18,
+input:1,1,1,1,1,1,1,1,1,
+output:40,43,46,56,60,64,118,127,136,
+[       OK ] ExampleCppEdsl.GEMM_INT32 (64 ms)
+[ RUN      ] ExampleCppEdsl.GEMM_INT8
+program_name:gemm
+input_dtype:5
+input_shape:3,3,
+input_dtype:5
+input_shape:3,3,
+input_dtype:5
+input_shape:3,3,
+output_dtype:5
+output_shape:3,3,
+input:1,1,1,1,1,2,3,3,3,
+input:1,2,3,3,4,5,3,3,3,
+input:1,1,1,1,1,1,1,1,1,
+output:8,10,12,11,13,15,22,28,34,
+[       OK ] ExampleCppEdsl.GEMM_INT8 (65 ms)
+[ RUN      ] ExampleCppEdsl.GEMM_FLOAT32
+program_name:gemm
+input_dtype:14
+input_shape:3,3,
+input_dtype:14
+input_shape:3,3,
+input_dtype:14
+input_shape:3,3,
+output_dtype:14
+output_shape:3,3,
+input:0.5,0.2,4,1,1,2,3,3,0.3,
+input:1,2,3,3,4,0.5,3,3,3,
+input:1,1,1,1,1,1,1,1,1,
+output:14.1,14.8,14.6,11,13,10.5,13.9,19.9,12.4,
+[       OK ] ExampleCppEdsl.GEMM_FLOAT32 (29 ms)
+[ RUN      ] ExampleCppEdsl.GEMVC_INT64
+program_name:gemvc
+input_dtype:11
+input_shape:3,3,
+input_dtype:11
+input_shape:3,
+input_dtype:11
+input_shape:3,
+output_dtype:11
+output_shape:3,
+input:1,1,1,1,1,1,1,1,1,
+input:1,1,1,
+input:1,1,1,
+output:19,19,19,
+[       OK ] ExampleCppEdsl.GEMVC_INT64 (109 ms)
+[ RUN      ] ExampleCppEdsl.GEMV_INT64
+program_name:gemv
+input_dtype:11
+input_shape:3,3,
+input_dtype:11
+input_shape:3,
+input_dtype:11
+input_shape:3,
+output_dtype:11
+output_shape:3,
+input:1,1,1,1,1,1,1,1,1,
+input:1,1,1,
+input:1,1,1,
+output:4,4,4,
+[       OK ] ExampleCppEdsl.GEMV_INT64 (102 ms)
+[ RUN      ] ExampleCppEdsl.GEMV_UINT64
+program_name:gemv
+input_dtype:12
+input_shape:3,3,
+input_dtype:12
+input_shape:3,
+input_dtype:12
+input_shape:3,
+output_dtype:12
+output_shape:3,
+input:1,1,1,1,1,1,1,1,1,
+input:1,1,1,
+input:1,1,1,
+output:4,4,4,
+[       OK ] ExampleCppEdsl.GEMV_UINT64 (99 ms)
+[ RUN      ] ExampleCppEdsl.GEMV_INT32
+program_name:gemv
+input_dtype:9
+input_shape:3,3,
+input_dtype:9
+input_shape:3,
+input_dtype:9
+input_shape:3,
+output_dtype:9
+output_shape:3,
+input:1,1,1,1,1,1,1,1,1,
+input:1,1,1,
+input:1,1,1,
+output:4,4,4,
+[       OK ] ExampleCppEdsl.GEMV_INT32 (100 ms)
+[ RUN      ] ExampleCppEdsl.GEMV_INT8
+program_name:gemv
+input_dtype:5
+input_shape:3,3,
+input_dtype:5
+input_shape:3,
+input_dtype:5
+input_shape:3,
+output_dtype:5
+output_shape:3,
+input:1,1,1,1,1,1,1,1,1,
+input:1,1,1,
+input:1,1,1,
+output:4,4,4,
+[       OK ] ExampleCppEdsl.GEMV_INT8 (118 ms)
+[ RUN      ] ExampleCppEdsl.GEMV_FLOAT32
+program_name:gemv
+input_dtype:14
+input_shape:3,3,
+input_dtype:14
+input_shape:3,
+input_dtype:14
+input_shape:3,
+output_dtype:14
+output_shape:3,
+input:1,0.5,1,1,1,1,1,0.6,1,
+input:1,1,1,
+input:1,1,1,
+output:3.5,4,3.6,
+[       OK ] ExampleCppEdsl.GEMV_FLOAT32 (73 ms)
+[ RUN      ] ExampleCppEdsl.MaxPool1D
+program_name:max_pool_1d
+input_dtype:12
+input_shape:3,
+output_dtype:12
+output_shape:1,
+[       OK ] ExampleCppEdsl.MaxPool1D (30 ms)
+[ RUN      ] ExampleCppEdsl.WrongMaxPool1D
+program_name:wrong_max_pool_1d
+input_dtype:12
+input_shape:3,
+output_dtype:12
+output_shape:1,
+[       OK ] ExampleCppEdsl.WrongMaxPool1D (1 ms)
+[ RUN      ] ExampleCppEdsl.Quantize
+program_name:quantize
+input_dtype:14
+input_shape:3,
+output_dtype:5
+output_shape:3,
+input:0.1,0.4,0.3,
+output:25,102,76,
+[       OK ] ExampleCppEdsl.Quantize (63 ms)
+[----------] 17 tests from ExampleCppEdsl (2187 ms total)
+
+[----------] Global test environment tear-down
+[==========] 17 tests from 1 test suite ran. (2205 ms total)
+[  PASSED  ] 17 tests.
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+LIBXSMM_TARGET: clx
+Registry and code: 13 MB + 16 KB (meltw=2)
+Uptime: 2.194498 s
+<end of output>
+Test time =   2.69 sec
+----------------------------------------------------------
+Test Passed.
+"plaidml/edsl/examples/cc_test" end time: Jun 30 11:04 PDT
+"plaidml/edsl/examples/cc_test" time elapsed: 00:00:02
+----------------------------------------------------------
+
+7/12 Testing: plaidml/edsl/examples/py_test
+7/12 Test: plaidml/edsl/examples/py_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/.cenv/bin/python" "/nfs/site/home/lchang1/plaidml/plaidml/plaidml/edsl/examples/example_tests.py"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/plaidml/edsl/examples
+"plaidml/edsl/examples/py_test" start time: Jun 30 11:04 PDT
+Output:
+----------------------------------------------------------
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.900s
+
+OK
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+LIBXSMM_TARGET: clx
+Registry and code: 13 MB + 32 KB (meltw=4)
+Uptime: 0.955966 s
+<end of output>
+Test time =   1.66 sec
+----------------------------------------------------------
+Test Passed.
+"plaidml/edsl/examples/py_test" end time: Jun 30 11:04 PDT
+"plaidml/edsl/examples/py_test" time elapsed: 00:00:01
+----------------------------------------------------------
+
+8/12 Testing: plaidml/exec/tests/cc_test
+8/12 Test: plaidml/exec/tests/cc_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/bin/plaidml_exec_tests_cc_test"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release
+"plaidml/exec/tests/cc_test" start time: Jun 30 11:04 PDT
+Output:
+----------------------------------------------------------
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+target:llvm_cpu
+[----------] 1 test from ListDevices
+[ RUN      ] ListDevices.DevicesExist
+[       OK ] ListDevices.DevicesExist (0 ms)
+[----------] 1 test from ListDevices (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (17 ms total)
+[  PASSED  ] 1 test.
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+LIBXSMM_TARGET: clx
+Registry and code: 13 MB
+Uptime: 0.004759 s
+<end of output>
+Test time =   0.38 sec
+----------------------------------------------------------
+Test Passed.
+"plaidml/exec/tests/cc_test" end time: Jun 30 11:04 PDT
+"plaidml/exec/tests/cc_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/12 Testing: plaidml/op/op_test
+9/12 Test: plaidml/op/op_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/bin/plaidml_op_op_test"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release
+"plaidml/op/op_test" start time: Jun 30 11:04 PDT
+Output:
+----------------------------------------------------------
+[==========] Running 66 tests from 2 test suites.
+[----------] Global test environment set-up.
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+target:llvm_cpu
+[----------] 59 tests from OpTest
+[ RUN      ] OpTest.Abs
+program_name:abs
+input_dtype:14
+input_shape:1,224,224,3,
+output_dtype:14
+output_shape:1,224,224,3,
+[       OK ] OpTest.Abs (781 ms)
+[ RUN      ] OpTest.All
+program_name:all
+input_dtype:14
+input_shape:1,224,224,3,
+output_dtype:6
+output_shape:
+[       OK ] OpTest.All (74 ms)
+[ RUN      ] OpTest.Any
+program_name:any
+input_dtype:14
+input_shape:1,224,224,3,
+output_dtype:6
+output_shape:
+[       OK ] OpTest.Any (60 ms)
+[ RUN      ] OpTest.Argmax
+program_name:argmax
+input_dtype:14
+input_shape:1,224,224,3,
+output_dtype:10
+output_shape:
+[       OK ] OpTest.Argmax (91 ms)
+[ RUN      ] OpTest.BinaryCrossentropy
+program_name:binary_crossentropy
+input_dtype:14
+input_shape:7,7,3,64,
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:7,7,3,64,
+[       OK ] OpTest.BinaryCrossentropy (251 ms)
+[ RUN      ] OpTest.BroadcastNoOp
+program_name:broadcast_nop
+input_dtype:14
+input_shape:3,
+output_dtype:14
+output_shape:3,
+input:0,1,2,
+output:0,1,2,
+[       OK ] OpTest.BroadcastNoOp (61 ms)
+[ RUN      ] OpTest.BroadcastScalar
+program_name:broadcast_scalar
+input_dtype:14
+input_shape:
+output_dtype:14
+output_shape:3,4,
+input:3,
+output:3,3,3,3,3,3,3,3,3,3,3,3,
+[       OK ] OpTest.BroadcastScalar (26 ms)
+[ RUN      ] OpTest.BroadcastNoOpLarge
+program_name:broadcast_nop_large
+input_dtype:14
+input_shape:3,4,
+output_dtype:14
+output_shape:3,4,
+input:0,1,2,3,0,1,2,3,0,1,2,3,
+output:0,1,2,3,0,1,2,3,0,1,2,3,
+[       OK ] OpTest.BroadcastNoOpLarge (25 ms)
+[ RUN      ] OpTest.BroadcastNumpy
+program_name:broadcast_numpy
+input_dtype:14
+input_shape:1,3,3,
+output_dtype:14
+output_shape:1,4,3,3,
+input:0,1,2,0,1,2,0,1,2,
+output:0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,
+[       OK ] OpTest.BroadcastNumpy (51 ms)
+[ RUN      ] OpTest.BroadcastNumpy2
+program_name:broadcast_numpy_2
+input_dtype:14
+input_shape:3,1,
+output_dtype:14
+output_shape:3,4,
+input:0,1,2,
+output:0,0,0,0,1,1,1,1,2,2,2,2,
+[       OK ] OpTest.BroadcastNumpy2 (34 ms)
+[ RUN      ] OpTest.BroadcastNumpy3
+program_name:broadcast_numpy_3
+input_dtype:14
+input_shape:3,
+output_dtype:14
+output_shape:4,3,
+input:0,1,2,
+output:0,1,2,0,1,2,0,1,2,0,1,2,
+[       OK ] OpTest.BroadcastNumpy3 (26 ms)
+[ RUN      ] OpTest.BroadcastNonNumpy
+program_name:broadcast_non_numpy
+input_dtype:14
+input_shape:3,
+output_dtype:14
+output_shape:3,4,
+input:0,1,2,
+output:0,0,0,0,1,1,1,1,2,2,2,2,
+[       OK ] OpTest.BroadcastNonNumpy (33 ms)
+[ RUN      ] OpTest.Broadcast
+program_name:broadcast
+input_dtype:14
+input_shape:1,224,224,
+output_dtype:14
+output_shape:1,224,224,3,
+[       OK ] OpTest.Broadcast (85 ms)
+[ RUN      ] OpTest.Clip
+program_name:clip
+input_dtype:14
+input_shape:7,7,3,64,
+input_dtype:14
+input_shape:7,7,3,64,
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:7,7,3,64,
+[       OK ] OpTest.Clip (161 ms)
+[ RUN      ] OpTest.Concatenate
+program_name:concatenate
+input_dtype:14
+input_shape:7,7,3,64,
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:7,7,6,64,
+[       OK ] OpTest.Concatenate (144 ms)
+[ RUN      ] OpTest.CumProd
+program_name:cumprod
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:7,7,3,64,
+[       OK ] OpTest.CumProd (212 ms)
+[ RUN      ] OpTest.CumSum
+program_name:cumsum
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:7,7,3,64,
+[       OK ] OpTest.CumSum (213 ms)
+[ RUN      ] OpTest.CumSumExclusive
+program_name:cumsum
+input_dtype:14
+input_shape:4,
+output_dtype:14
+output_shape:4,
+input:2,4,6,8,
+output:0,2,6,12,
+[       OK ] OpTest.CumSumExclusive (158 ms)
+[ RUN      ] OpTest.Dot
+program_name:dot
+input_dtype:14
+input_shape:7,7,3,64,
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:7,7,3,7,7,64,
+[       OK ] OpTest.Dot (205 ms)
+[ RUN      ] OpTest.Elu
+program_name:elu
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:7,7,3,64,
+[       OK ] OpTest.Elu (153 ms)
+[ RUN      ] OpTest.ExplicitPadding
+program_name:explicit_padding
+input_dtype:14
+input_shape:2,3,
+output_dtype:14
+output_shape:6,5,
+input:1,2,3,4,5,6,
+output:-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,2,3,-1,-1,4,5,6,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+[       OK ] OpTest.ExplicitPadding (38 ms)
+[ RUN      ] OpTest.ExplicitPaddingNegInf
+program_name:explicit_padding
+input_dtype:14
+input_shape:2,3,
+output_dtype:14
+output_shape:6,5,
+input:1,2,3,4,5,6,
+output:-inf,-inf,-inf,-inf,-inf,-inf,-inf,-inf,-inf,-inf,-inf,1,2,3,-inf,-inf,4,5,6,-inf,-inf,-inf,-inf,-inf,-inf,-inf,-inf,-inf,-inf,-inf,
+[       OK ] OpTest.ExplicitPaddingNegInf (37 ms)
+[ RUN      ] OpTest.ExplicitPaddingInf
+program_name:explicit_padding
+input_dtype:14
+input_shape:2,3,
+output_dtype:14
+output_shape:6,5,
+input:-1,-2,-3,-4,-5,-6,
+output:inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,-1,-2,-3,inf,inf,-4,-5,-6,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,inf,
+[       OK ] OpTest.ExplicitPaddingInf (37 ms)
+[ RUN      ] OpTest.ExplicitPaddingNoOp
+program_name:explicit_padding
+input_dtype:14
+input_shape:2,3,
+output_dtype:14
+output_shape:2,3,
+input:1,2,3,4,5,6,
+output:1,2,3,4,5,6,
+[       OK ] OpTest.ExplicitPaddingNoOp (36 ms)
+[ RUN      ] OpTest.ExplicitPaddingEdge
+program_name:explicit_padding
+input_dtype:14
+input_shape:1,2,3,
+output_dtype:14
+output_shape:4,5,7,
+input:1,2,3,4,5,6,
+output:1,1,2,3,3,3,3,1,1,2,3,3,3,3,1,1,2,3,3,3,3,4,4,5,6,6,6,6,4,4,5,6,6,6,6,1,1,2,3,3,3,3,1,1,2,3,3,3,3,1,1,2,3,3,3,3,4,4,5,6,6,6,6,4,4,5,6,6,6,6,1,1,2,3,3,3,3,1,1,2,3,3,3,3,1,1,2,3,3,3,3,4,4,5,6,6,6,6,4,4,5,6,6,6,6,1,1,2,3,3,3,3,1,1,2,3,3,3,3,1,1,2,3,3,3,3,4,4,5,6,6,6,6,4,4,5,6,6,6,6,
+[       OK ] OpTest.ExplicitPaddingEdge (391 ms)
+[ RUN      ] OpTest.Flip
+program_name:flip
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:7,7,3,64,
+[       OK ] OpTest.Flip (81 ms)
+[ RUN      ] OpTest.HardSigmoid
+program_name:hard_sigmoid
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.HardSigmoid (74 ms)
+[ RUN      ] OpTest.ImageResize
+program_name:image_resize
+input_dtype:14
+input_shape:1,224,224,3,
+output_dtype:14
+output_shape:1,1120,896,3,
+[       OK ] OpTest.ImageResize (838 ms)
+[ RUN      ] OpTest.Max
+program_name:max
+input_dtype:14
+input_shape:1,224,224,3,
+output_dtype:14
+output_shape:
+[       OK ] OpTest.Max (50 ms)
+[ RUN      ] OpTest.Maximum
+program_name:maximum
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.Maximum (45 ms)
+[ RUN      ] OpTest.Mean
+program_name:mean
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:
+[       OK ] OpTest.Mean (53 ms)
+[ RUN      ] OpTest.Min
+program_name:min
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:
+[       OK ] OpTest.Min (37 ms)
+[ RUN      ] OpTest.Minimum
+program_name:minimum
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.Minimum (45 ms)
+[ RUN      ] OpTest.L2Norm
+program_name:l2norm
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,1,
+[       OK ] OpTest.L2Norm (138 ms)
+[ RUN      ] OpTest.Pool
+program_name:pool
+input_dtype:14
+input_shape:10,20,30,40,50,
+output_dtype:14
+output_shape:10,22,17,14,50,
+[       OK ] OpTest.Pool (633 ms)
+[ RUN      ] OpTest.Prod
+program_name:prod
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:
+[       OK ] OpTest.Prod (40 ms)
+[ RUN      ] OpTest.Relu
+program_name:relu
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.Relu (88 ms)
+[ RUN      ] OpTest.ReluNoAlpha
+program_name:relu
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.ReluNoAlpha (66 ms)
+[ RUN      ] OpTest.ReluNoMaxValue
+program_name:relu
+input_dtype:14
+input_shape:10,20,
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.ReluNoMaxValue (59 ms)
+[ RUN      ] OpTest.ReluOnlyThreshold
+program_name:relu
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.ReluOnlyThreshold (44 ms)
+[ RUN      ] OpTest.ReluNoParams
+program_name:relu
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.ReluNoParams (36 ms)
+[ RUN      ] OpTest.ReorgYoloDecrease
+program_name:reorg_yolo
+input_dtype:11
+input_shape:1,4,6,6,
+output_dtype:11
+output_shape:1,1,12,12,
+input:0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,
+output:0,36,1,37,2,38,3,39,4,40,5,41,72,108,73,109,74,110,75,111,76,112,77,113,6,42,7,43,8,44,9,45,10,46,11,47,78,114,79,115,80,116,81,117,82,118,83,119,12,48,13,49,14,50,15,51,16,52,17,53,84,120,85,121,86,122,87,123,88,124,89,125,18,54,19,55,20,56,21,57,22,58,23,59,90,126,91,127,92,128,93,129,94,130,95,131,24,60,25,61,26,62,27,63,28,64,29,65,96,132,97,133,98,134,99,135,100,136,101,137,30,66,31,67,32,68,33,69,34,70,35,71,102,138,103,139,104,140,105,141,106,142,107,143,
+[       OK ] OpTest.ReorgYoloDecrease (99 ms)
+[ RUN      ] OpTest.ReorgYoloIncrease
+program_name:reorg_yolo
+input_dtype:11
+input_shape:1,4,6,6,
+output_dtype:11
+output_shape:1,16,3,3,
+input:0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,
+output:0,2,4,12,14,16,24,26,28,36,38,40,48,50,52,60,62,64,72,74,76,84,86,88,96,98,100,108,110,112,120,122,124,132,134,136,1,3,5,13,15,17,25,27,29,37,39,41,49,51,53,61,63,65,73,75,77,85,87,89,97,99,101,109,111,113,121,123,125,133,135,137,6,8,10,18,20,22,30,32,34,42,44,46,54,56,58,66,68,70,78,80,82,90,92,94,102,104,106,114,116,118,126,128,130,138,140,142,7,9,11,19,21,23,31,33,35,43,45,47,55,57,59,67,69,71,79,81,83,91,93,95,103,105,107,115,117,119,127,129,131,139,141,143,
+[       OK ] OpTest.ReorgYoloIncrease (100 ms)
+[ RUN      ] OpTest.ReorgYoloNHWC
+program_name:reorg_yolo
+input_dtype:11
+input_shape:1,6,6,4,
+output_dtype:11
+output_shape:1,12,12,1,
+[       OK ] OpTest.ReorgYoloNHWC (99 ms)
+[ RUN      ] OpTest.Repeat
+program_name:repeat
+input_dtype:14
+input_shape:32,1,4,1,
+output_dtype:14
+output_shape:32,1,12,1,
+[       OK ] OpTest.Repeat (131 ms)
+[ RUN      ] OpTest.Reshape
+program_name:reshape
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:20,10,
+[       OK ] OpTest.Reshape (57 ms)
+[ RUN      ] OpTest.Sigmoid
+program_name:sigmoid
+input_dtype:14
+input_shape:10,
+output_dtype:14
+output_shape:10,
+[       OK ] OpTest.Sigmoid (93 ms)
+[ RUN      ] OpTest.Slice
+program_name:slice
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:
+[       OK ] OpTest.Slice (24 ms)
+[ RUN      ] OpTest.Slice2
+program_name:slice
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:2,3,
+[       OK ] OpTest.Slice2 (49 ms)
+[ RUN      ] OpTest.Softmax
+program_name:softmax
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:10,20,
+[       OK ] OpTest.Softmax (207 ms)
+[ RUN      ] OpTest.Sort
+program_name:sort
+input_dtype:14
+input_shape:5,4,
+output_dtype:14
+output_shape:5,4,
+[       OK ] OpTest.Sort (263 ms)
+[ RUN      ] OpTest.SpatialPadding
+program_name:spatial_padding
+input_dtype:14
+input_shape:64,4,32,32,
+output_dtype:14
+output_shape:64,8,38,32,
+[       OK ] OpTest.SpatialPadding (209 ms)
+[ RUN      ] OpTest.Square
+program_name:square
+input_dtype:14
+input_shape:10,
+output_dtype:14
+output_shape:10,
+[       OK ] OpTest.Square (42 ms)
+[ RUN      ] OpTest.Sum
+program_name:sum
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:
+[       OK ] OpTest.Sum (37 ms)
+[ RUN      ] OpTest.Squeeze
+program_name:squeeze
+input_dtype:12
+input_shape:3,1,4,1,
+output_dtype:12
+output_shape:3,4,
+input:0,1,2,3,4,5,6,7,8,9,10,11,
+output:0,1,2,3,4,5,6,7,8,9,10,11,
+[       OK ] OpTest.Squeeze (48 ms)
+[ RUN      ] OpTest.Tile
+program_name:tile
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:50,80,
+[       OK ] OpTest.Tile (123 ms)
+[ RUN      ] OpTest.Transpose
+program_name:transpose
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:20,10,
+[       OK ] OpTest.Transpose (72 ms)
+[ RUN      ] OpTest.Unsqueeze
+program_name:unsqueeze
+input_dtype:12
+input_shape:3,4,
+output_dtype:12
+output_shape:1,3,4,
+input:0,1,2,3,4,5,6,7,8,9,10,11,
+output:0,1,2,3,4,5,6,7,8,9,10,11,
+[       OK ] OpTest.Unsqueeze (77 ms)
+[ RUN      ] OpTest.Variance
+program_name:variance
+input_dtype:14
+input_shape:10,20,
+output_dtype:14
+output_shape:
+[       OK ] OpTest.Variance (123 ms)
+[----------] 59 tests from OpTest (7563 ms total)
+
+[----------] 7 tests from Suite/ConvolutionTest
+[ RUN      ] Suite/ConvolutionTest.Basic/0
+program_name:convolution
+input_dtype:14
+input_shape:1,224,224,3,
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:1,111,111,64,
+[       OK ] Suite/ConvolutionTest.Basic/0 (244 ms)
+[ RUN      ] Suite/ConvolutionTest.Basic/1
+program_name:convolution
+input_dtype:14
+input_shape:1,224,224,3,
+input_dtype:14
+input_shape:7,7,3,64,
+output_dtype:14
+output_shape:1,112,112,64,
+[       OK ] Suite/ConvolutionTest.Basic/1 (234 ms)
+[ RUN      ] Suite/ConvolutionTest.Basic/2
+program_name:convolution
+input_dtype:14
+input_shape:1,56,56,64,
+input_dtype:14
+input_shape:1,1,64,256,
+output_dtype:14
+output_shape:1,56,56,256,
+[       OK ] Suite/ConvolutionTest.Basic/2 (218 ms)
+[ RUN      ] Suite/ConvolutionTest.Basic/3
+program_name:convolution
+input_dtype:14
+input_shape:1,32,224,224,3,
+input_dtype:14
+input_shape:7,7,7,3,64,
+output_dtype:14
+output_shape:1,16,112,112,64,
+[       OK ] Suite/ConvolutionTest.Basic/3 (432 ms)
+[ RUN      ] Suite/ConvolutionTest.Basic/4
+program_name:convolution
+input_dtype:14
+input_shape:1,3,1,1,1024,
+input_dtype:14
+input_shape:1,1,1,1024,400,
+output_dtype:14
+output_shape:1,3,1,1,400,
+[       OK ] Suite/ConvolutionTest.Basic/4 (118 ms)
+[ RUN      ] Suite/ConvolutionTest.Basic/5
+program_name:convolution
+input_dtype:14
+input_shape:1,16,56,56,64,
+input_dtype:14
+input_shape:1,1,1,64,64,
+output_dtype:14
+output_shape:1,16,56,56,64,
+[       OK ] Suite/ConvolutionTest.Basic/5 (199 ms)
+[ RUN      ] Suite/ConvolutionTest.Basic/6
+program_name:convolution
+input_dtype:14
+input_shape:1,16,56,56,64,
+input_dtype:14
+input_shape:3,3,3,64,192,
+output_dtype:14
+output_shape:1,16,56,56,192,
+[       OK ] Suite/ConvolutionTest.Basic/6 (389 ms)
+[----------] 7 tests from Suite/ConvolutionTest (1835 ms total)
+
+[----------] Global test environment tear-down
+[==========] 66 tests from 2 test suites ran. (9414 ms total)
+[  PASSED  ] 66 tests.
+
+  YOU HAVE 1 DISABLED TEST
+
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+CLX/SP      TRY    JIT    STA    COL
+   0..13      0      0      0      0
+  14..23      2      2      0      0
+  24..64      3      3      0      0
+Registry and code: 13 MB + 528 KB (gemm=5 gemv=1 meltw=60)
+Uptime: 9.404651 s
+<end of output>
+Test time =   9.91 sec
+----------------------------------------------------------
+Test Passed.
+"plaidml/op/op_test" end time: Jun 30 11:05 PDT
+"plaidml/op/op_test" time elapsed: 00:00:09
+----------------------------------------------------------
+
+10/12 Testing: pmlc/lit
+10/12 Test: pmlc/lit
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/_deps/llvm-project-build/bin/llvm-lit" "/nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/pmlc" "-v"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release
+"pmlc/lit" start time: Jun 30 11:05 PDT
+Output:
+----------------------------------------------------------
+-- Testing: 109 tests, 109 workers --
+PASS: PML :: pmlc/dialect/pxa/tests/vectorize-mem_ops.mlir (1 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/low_bound.mlir (2 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/fill.mlir (3 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/constant.mlir (4 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/index.mlir (5 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/const_closure_2.mlir (6 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/use-default.mlir (7 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/reshape.mlir (8 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/collapse.mlir (9 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/materialize.mlir (10 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/resize_tmps_generic.mlir (11 of 109)
+PASS: PML :: pmlc/dialect/pml/tests/load_module.mlir (12 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/dot.mlir (13 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/expand_reshape.mlir (14 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/constant-fold.mlir (15 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/closure.mlir (16 of 109)
+PASS: PML :: pmlc/dialect/pml/tests/apply_rules.mlir (17 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/expand.mlir (18 of 109)
+PASS: PML :: pmlc/dialect/pml/tests/schedule.mlir (19 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/strides.mlir (20 of 109)
+PASS: PML :: pmlc/dialect/stdx/tests/main_closure.mlir (21 of 109)
+PASS: PML :: pmlc/dialect/stdx/tests/boundscheck-load.mlir (22 of 109)
+PASS: PML :: pmlc/dialect/affinex/tests/memref_dataflow_opt.mlir (23 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/add.mlir (24 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/relu.mlir (25 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/double_dot.mlir (26 of 109)
+PASS: PML :: pmlc/dialect/linalgx/tests/roundtrip.mlir (27 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/generic.mlir (28 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/autotile.mlir (29 of 109)
+PASS: PML :: pmlc/dialect/linalgx/tests/regulate_conv.mlir (30 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/index.mlir (31 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/normalize-memrefs.mlir (32 of 109)
+PASS: PML :: pmlc/dialect/layer/tests/inline_layers.mlir (33 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/pad_tensor.mlir (34 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/roundtrip.mlir (35 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/reshape-fold.mlir (36 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/tensor_init.mlir (37 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/algebraic_opt.mlir (38 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/shape.mlir (39 of 109)
+PASS: PML :: pmlc/dialect/stdx/tests/boundscheck-store.mlir (40 of 109)
+PASS: PML :: pmlc/dialect/pml/tests/roundtrip.mlir (41 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/tile_add.mlir (42 of 109)
+PASS: PML :: pmlc/target/x86/tests/stencil_split.mlir (43 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/init.mlir (44 of 109)
+PASS: PML :: pmlc/target/x86/tests/reorder_forward.mlir (45 of 109)
+PASS: PML :: pmlc/conversion/pxa_to_affine/tests/scatter.mlir (46 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/const_closure.mlir (47 of 109)
+PASS: PML :: pmlc/conversion/pxa_to_affine/tests/vector.mlir (48 of 109)
+PASS: PML :: pmlc/dialect/affinex/tests/dead_memref_elimination.mlir (49 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/multi_init.mlir (50 of 109)
+PASS: PML :: pmlc/transforms/tests/hoisting.mlir (51 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/compute-bounds.mlir (52 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/resize_tmps.mlir (53 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/compare.mlir (54 of 109)
+PASS: PML :: pmlc/dialect/stdx/tests/split_closure.mlir (55 of 109)
+XFAIL: PML :: pmlc/conversion/pxa_to_affine/tests/contract.mlir (56 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/fusion.mlir (57 of 109)
+PASS: PML :: pmlc/target/x86/tests/xsmm_lowering.mlir (58 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/shape.mlir (59 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/const.mlir (60 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/double_for.mlir (61 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/dataflow_opt-only_parallel.mlir (62 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/cache_block.mlir (63 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/neg_bound.mlir (64 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/denest.mlir (65 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/simplify_arithmetic.mlir (66 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/broadcast.mlir (67 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/localize.mlir (68 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/dealloc.mlir (69 of 109)
+PASS: PML :: pmlc/target/x86/tests/reorder_layouts.mlir (70 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/eltwise.mlir (71 of 109)
+PASS: PML :: pmlc/target/x86/tests/stencil_tpp_binary.mlir (72 of 109)
+PASS: PML :: pmlc/dialect/affinex/tests/loop_unroll.mlir (73 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/tile_accumulate.mlir (74 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/load_store.mlir (75 of 109)
+PASS: PML :: pmlc/target/x86/tests/stencil_tpp_unary.mlir (76 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/for.mlir (77 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/pad_ranges.mlir (78 of 109)
+PASS: PML :: pmlc/dialect/stdx/tests/roundtrip.mlir (79 of 109)
+PASS: PML :: pmlc/conversion/linalg_to_pxa/test/conv.mlir (80 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/pooling.mlir (81 of 109)
+PASS: PML :: pmlc/conversion/stdx_to_llvm/tests/reshape.mlir (82 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/cpu_thread.mlir (83 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/vectorize-recursive.mlir (84 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/roundtrip.mlir (85 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/dataflow_opt.mlir (86 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/shr_scalar.mlir (87 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/ops.mlir (88 of 109)
+PASS: PML :: pmlc/dialect/tile/tests/pad_constraints.mlir (89 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/fusion-match.mlir (90 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/vectorize.mlir (91 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/cast.mlir (92 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/cache.mlir (93 of 109)
+XFAIL: PML :: pmlc/vendor/tests/mlir-hlo/mhlo-fusion.mlir (94 of 109)
+PASS: PML :: pmlc/conversion/tile_to_linalg/tests/logical.mlir (95 of 109)
+PASS: PML :: pmlc/dialect/xsmm/tests/roundtrip.mlir (96 of 109)
+PASS: PML :: pmlc/rt/tests/boundscheck-rt.mlir (97 of 109)
+XFAIL: PML :: pmlc/conversion/tile_to_linalg/tests/padding.mlir (98 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/mvn.mlir (99 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/uses.mlir (100 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/grn.mlir (101 of 109)
+PASS: PML :: pmlc/conversion/stdx_to_llvm/tests/pack.mlir (102 of 109)
+PASS: PML :: pmlc/dialect/pxa/tests/fusion-tiled.mlir (103 of 109)
+PASS: PML :: pmlc/rt/tests/openmp.mlir (104 of 109)
+PASS: PML :: pmlc/target/x86/tests/stencil_tpp_gemm.mlir (105 of 109)
+PASS: PML :: pmlc/target/x86/tests/xsmm_unary_call.mlir (106 of 109)
+PASS: PML :: pmlc/target/x86/tests/trace.mlir (107 of 109)
+PASS: PML :: pmlc/target/x86/tests/resnet50.mlir (108 of 109)
+PASS: PML :: pmlc/target/x86/tests/xsmm_call.mlir (109 of 109)
+
+Testing Time: 1.07s
+  Passed           : 106
+  Expectedly Failed:   3
+<end of output>
+Test time =   1.61 sec
+----------------------------------------------------------
+Test Passed.
+"pmlc/lit" end time: Jun 30 11:05 PDT
+"pmlc/lit" time elapsed: 00:00:01
+----------------------------------------------------------
+
+11/12 Testing: networks/scitile/LAS/cg_test
+11/12 Test: networks/scitile/LAS/cg_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/.cenv/bin/python" "/nfs/site/home/lchang1/plaidml/plaidml/networks/scitile/LAS/cg_tests.py"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/networks/scitile/LAS
+"networks/scitile/LAS/cg_test" start time: Jun 30 11:05 PDT
+Output:
+----------------------------------------------------------
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.216s
+
+OK
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+LIBXSMM_TARGET: clx
+Registry and code: 13 MB
+Uptime: 0.248629 s
+<end of output>
+Test time =   1.01 sec
+----------------------------------------------------------
+Test Passed.
+"networks/scitile/LAS/cg_test" end time: Jun 30 11:05 PDT
+"networks/scitile/LAS/cg_test" time elapsed: 00:00:01
+----------------------------------------------------------
+
+12/12 Testing: networks/scitile/storti_integrals/py_test
+12/12 Test: networks/scitile/storti_integrals/py_test
+Command: "/nfs/site/home/lchang1/plaidml/plaidml/.cenv/bin/python" "/nfs/site/home/lchang1/plaidml/plaidml/networks/scitile/storti_integrals/storti_integral_tests.py"
+Directory: /nfs/site/home/lchang1/plaidml/plaidml/build-x86_64/Release/networks/scitile/storti_integrals
+"networks/scitile/storti_integrals/py_test" start time: Jun 30 11:05 PDT
+Output:
+----------------------------------------------------------
+LIBXSMM WARNING: library is optimized without -DNDEBUG and contains debug code!
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 7.501s
+
+OK
+
+LIBXSMM_VERSION: unconfigured (2147483647)
+LIBXSMM_TARGET: clx
+Registry and code: 13 MB + 72 KB (meltw=9)
+Uptime: 7.612285 s
+<end of output>
+Test time =   9.16 sec
+----------------------------------------------------------
+Test Passed.
+"networks/scitile/storti_integrals/py_test" end time: Jun 30 11:05 PDT
+"networks/scitile/storti_integrals/py_test" time elapsed: 00:00:09
+----------------------------------------------------------
+
+End testing: Jun 30 11:05 PDT
+
+cc =  24.60 sec*proc
+
+core =  59.80 sec*proc
+
+keras =   2.50 sec*proc
+
+lit =  13.79 sec*proc
+
+networks/scitile/LAS =   1.01 sec*proc
+
+networks/scitile/storti_integrals =   9.16 sec*proc
+
+plaidml/bridge/keras =   2.50 sec*proc
+
+plaidml/edsl/examples =   4.35 sec*proc
+
+plaidml/edsl/tests =  30.87 sec*proc
+
+plaidml/exec/tests =   0.38 sec*proc
+
+plaidml/op =   9.91 sec*proc
+
+pmlc =   1.61 sec*proc
+
+python =  21.41 sec*proc
+
+smoke =  59.80 sec*proc
+
+test =  59.80 sec*proc
+

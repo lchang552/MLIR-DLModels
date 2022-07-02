@@ -22,15 +22,19 @@ class MlirOut:
 
 
 def getTypeStr(typeName):
-    if typeName == "INT64":
+    if typeName == "11":
         result = "i64"
-    elif typeName == "UINT64":
+    elif typeName == "12":
         result = "i64"
-    elif typeName == "INT32":
+    elif typeName == "9":
         result = "i32"
-    elif typeName == "INT8":
+    elif typeName == "10":
+        result = "i32"
+    elif typeName == "5":
         result = "i8"
-    elif typeName == "FLOAT32":
+    elif typeName == "6":
+        result = "i8"
+    elif typeName == "14":
         result = "f32"
     else:
         raise Exception("Unsupported Type",typeName)
@@ -59,8 +63,8 @@ def parseJasonInput(json_, functionName_, mlirOut_):
         ivar.arg = "%" + str(inputID)
         inputID += 1
         mlirOut_.testCallArg += ivar.arg + ","
-        values = var["value"].rstrip(", ").split(",")
-        shape = var["shape"].split(",")
+        values = var["value"].rstrip(",").split(",")
+        shape = var["shape"].rstrip(",").split(",")
         dataType = getTypeStr(var["dataType"])
         # convert them to int
         if dataType == 'f32':
@@ -89,13 +93,20 @@ def parseJasonInput(json_, functionName_, mlirOut_):
 mlir_path = sys.argv[1]
 json_path = sys.argv[2]
 out_mlir_path = sys.argv[3]
+functionName = sys.argv[4]
+
+
+# mlir_path = "/home/lchang1/testCase/MLIR-DLModels/test/without-main/CppEdsl.SimpleAdd.mlir"
+# json_path = "/home/lchang1/testCase/MLIR-DLModels/src/data.json"
+# out_mlir_path = "/home/lchang1/testCase/MLIR-DLModels/added-main/CppEdsl.SimpleAdd.mlir"
+# functionName = "CppEdsl.SimpleAdd"
 
 file = open(mlir_path)
 jsonFile = open(json_path)
 jsonInput = json.load(jsonFile)
 outFile = open(out_mlir_path, "w")
-stringOut = ""
-functionName = sys.argv[4]
+
+
 mlirOut = MlirOut()
 mlirOut.__int__()
 parseJasonInput(jsonInput, functionName, mlirOut)

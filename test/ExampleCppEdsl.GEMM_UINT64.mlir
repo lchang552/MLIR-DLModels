@@ -15,6 +15,7 @@ func.func @main() {
 func.func private @printMemrefI64(tensor<*xi64>)
 func.func @test(%arg0: tensor<3x3xi64>, %arg1: tensor<3x3xi64>, %arg2: tensor<3x3xi64>)->tensor<3x3xi64>{
     %c0_i64 = arith.constant 0 : i64
+    %0 = linalg.init_tensor [3, 3] : tensor<3x3xi64>
     %1 = linalg.fill ins(%c0_i64 : i64) outs(%0 : tensor<3x3xi64>) -> tensor<3x3xi64>
     %2 = linalg.generic {indexing_maps = [#map0, #map1, #map2], iterator_types = ["parallel", "parallel", "reduction"]} ins(%arg0, %arg1 : tensor<3x3xi64>, tensor<3x3xi64>) outs(%1 : tensor<3x3xi64>) attrs =  {iterator_ranges = [3, 3, 3]} {
     ^bb0(%arg3: i64, %arg4: i64, %arg5: i64):
