@@ -20,17 +20,13 @@ This is a tool for generation MLIR test cases
     - **verification-gpu.py**: the script for validating the output mlir file on GPU
 
 - recording the scripts for dealing the PlaidML test cases
-    - **extract-mlir-plaidML.py**: record the script to extract plaidML test cases
-    - **LastTest.log**: record the input and output trace of plaidML gtest log
-    - **test-env.cc**: record the changes to plaidML to print input and output logs
+    - **recording/extract-mlir-plaidML.py**: record the script to extract plaidML test cases
+    - **recording/LastTest.log**: record the input and output trace of plaidML gtest log
+    - **recording/test-env.cc**: record the changes to plaidML to print input and output logs
 
 - sampe script to generate data.json from input and output data log trace like in **LastTest.log** 
-    - **json-data-gen.py**: a sample script to generate data.json from plaidML c++ source file
-    - **json-gen-from-gtest-log.py**: a sample script to generate data.json from plaidML plaidML gtest log file
-
-- recording the scripts for dealing the IREE test cases
-    - **IREE-swap.py**: record the script to swap IREE util.global, util.address, and util.load operations to arith constant operation.
-    - **makefile**: records the commands and flags to reproduce the lowering and verification processes. 
+    - **sample-scripts/json-data-gen.py**: a sample script to generate data.json from plaidML c++ source file
+    - **sample-scripts/json-gen-from-gtest-log.py**: a sample script to generate data.json from plaidML plaidML gtest log file
 
 ## How to Run it
 
