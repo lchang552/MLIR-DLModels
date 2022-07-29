@@ -1,13 +1,15 @@
-from http.client import ImproperConnectionState
 from os import listdir
 from os.path import isfile, join
-import sys
 from os import system
-import json
+import parser
 
-test_dir = "/nfs/site/home/lchang1/pytool/MLIR-DLModels/added-main/"
-mlir_build_dir = "/nfs/site/home/lchang1/llvm/llvm-project/build/"
+parser.init_parser()  
+test_dir = parser.parser.test_dir
+mlir_build_dir = parser.parser.mlir_build_dir
 
+# for debug
+# test_dir = "/data/lchang1/MLIR-DLModels/test/"
+# mlir_build_dir = "/data/lchang1/mlir-llvm/"
 
 mlir_opt = mlir_build_dir+"bin/mlir-opt"
 mlir_cpu_runner = mlir_build_dir+"bin/mlir-cpu-runner"

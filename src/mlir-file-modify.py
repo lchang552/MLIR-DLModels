@@ -3,8 +3,6 @@ import numpy
 import json
 import sys
 
-
-
 class inputVar:
     def __int__(self):
         self.arg = ""

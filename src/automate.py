@@ -1,11 +1,18 @@
 from os import system
 import json
 from os import listdir
+import parser
 
-        
-json_path = "/nfs/site/home/lchang1/pytool/MLIR-DLModels/src/data.json"
-mlir_input_dir = "/nfs/site/home/lchang1/pytool/MLIR-DLModels/test/without-main/"
-mlir_output_dir = "/nfs/site/home/lchang1/pytool/MLIR-DLModels/added-main/"
+parser.init_parser()  
+json_path = parser.parser.json_path
+mlir_input_dir = parser.parser.mlir_input_dir
+mlir_output_dir = parser.parser.mlir_output_dir
+
+# for debugging
+# json_path = "/nfs/site/home/lchang1/pytool/MLIR-DLModels/src/data.json"
+# mlir_input_dir = "/nfs/site/home/lchang1/pytool/MLIR-DLModels/test/without-main/"
+# mlir_output_dir = "/nfs/site/home/lchang1/pytool/MLIR-DLModels/added-main/"
+
 
 json_file = open(json_path)
 json_file = json.load(json_file)
