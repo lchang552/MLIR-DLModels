@@ -1,4 +1,4 @@
-# python-based MLIR test case generation tool
+# Python-based MLIR test case generation tool
 
 This is a tool for generation MLIR test cases
 ## The function of this tool
@@ -34,6 +34,8 @@ This is a tool for generation MLIR test cases
 
 ## How to Run it
 
+- before you run
+    - change the file path in config.txt according to your environment
 - test case generation
 
 ```
